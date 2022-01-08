@@ -1,25 +1,53 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import card from './Api';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+const App=()=>{
+  return(
+    <div className="main">
+    
+    <div className="wrapper">
+    <div className="container">
+      {
+        card.map((value,index) =>{
+          return (
+          <div className="box">
+        <div className="content">
+          
+          
+          {
+            value.origin.split(" ")[0]==="Automated"
+            ? <h5 className='green-tag'>{value.origin}</h5>:
+            <h5 className='violet-tag'>{value.origin}</h5>
+          }
+          <h3>{value.title}</h3>
+          <p>{value.intents} intents</p>
+          <button className="btn">View</button>
+          <button className="btn sm">Remove</button>
+         <div className="footer-bottom"><p>Last Updated: Jan 23 2021 @ 4:23am</p></div>
+         </div>
+      </div>
+      
+
+          )
+        })
+      }
+    
+
+    
+
+      
+      
     </div>
-  );
+    </div>
+   
+      </div>
+  )
 }
 
 export default App;
+
+
+
+
